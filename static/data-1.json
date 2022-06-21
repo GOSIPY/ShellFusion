@@ -1,0 +1,89 @@
+{
+    "Answers": [
+        {
+            "Command": "cut",
+            "Explanations about Options": {
+                "-c(M)": "select only these characters",
+                "-d(M)": "use DELIM instead of TAB for field delimiter"
+            },
+            "MP Summary": "remove sections from each line of files",
+            "Most Similar TLDR Script": "cut -c {{1-16}} {{file}}",
+            "Most Similar TLDR Task": "Cut out the first sixteen characters of each line of the given files",
+            "Top-3 Scripts": [
+                "so_43754540: s=\"1478456=Good bye 1 2\"\necho ${s//[[:digit:]]/} | cut -c1\n=",
+                "so_15148796: cut -d \"=\" -f2 <<< \"$your_str\"\n\ncut -d \"=\" -f2- <<< \"$your_str\"",
+                "so_55101106: echo \"<tag>Hello world </tag> blah blah blah <tag> Good night ls -ltrh cptrade* </tag>\" | cut -d'>' -f2 | cut -d'<' -f1"
+            ],
+            "Top-3 Similar Questions": [
+                "so_43754540: Extract the first character after the first number",
+                "so_15148796: Get string after character",
+                "so_55101106: Extract text between two strings but only the first occurrence using sed?"
+            ]
+        },
+        {
+            "Command": "nvcc",
+            "Explanations about Options": {"": "{}"},
+            "MP Summary": "The NVIDIA CUDA Compiler",
+            "Most Similar TLDR Script": "",
+            "Most Similar TLDR Task": "",
+            "Top-3 Scripts": [
+                "au_1077061: ~$ nvcc -V\nnvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2021 NVIDIA Corporation\nBuilt on Mon_Sep_13_19:13:29_PDT_2021\nCuda compilation tools, release 11.5, V11.5.50\nBuild cuda_11.5.r11.5/compiler.30411180_0"
+            ],
+            "Top-3 Similar Questions": [
+                "au_1077061: How do I install NVIDIA and CUDA drivers into Ubuntu?"
+            ]
+        },
+        {
+            "Command": "apt-get",
+            "Explanations about Options": {},
+            "MP Summary": "APT package handling utility - command-line interface",
+            "Most Similar TLDR Script": "apt-get upgrade",
+            "Most Similar TLDR Task": "Upgrade all installed packages to their newest available versions",
+            "Top-3 Scripts": [
+                "au_805186: sudo apt-get install nvidia-361 nvidia-prime",
+                "au_662721: sudo add-apt-repository ppa:graphics-drivers/ppa\nsudo apt-get update\nsudo apt-get install nvidia-355",
+                "au_640335: sudo add-apt-repository ppa:xorg-edgers/ppa\nsudo apt-get update\n\nsudo apt-get install nvidia-337"
+            ],
+            "Top-3 Similar Questions": [
+                "au_805186: What GPU driver installed?",
+                "au_662721: how do i upgrade my gpu (drivers)",
+                "au_640335: cannot get my nVidia drivers to install"
+            ]
+        },
+        {
+            "Command": "lspci",
+            "Explanations about Options": {
+                "-k(M)": "Show kernel drivers handling each device and also kernel modules capable of\n handling it. Turned on by default when -v is given in the normal mode of output.\n (Currently works only on Linux with kernel 2.6 or newer.)",
+                "-nn(M)": "Show PCI vendor and device codes as both numbers and names."
+            },
+            "MP Summary": "list all PCI devices",
+            "Most Similar TLDR Script": "lspci -k",
+            "Most Similar TLDR Task": "Display drivers and modules handling each device",
+            "Top-3 Scripts": [
+                "au_524242: lspci -nn | grep '\\[03'",
+                "au_740027: lspci -k | grep -EA2 'VGA|3D'"
+            ],
+            "Top-3 Similar Questions": [
+                "au_524242: How to find out which NVIDIA GPU I have",
+                "au_740027: What's wrong with my gpu?"
+            ]
+        },
+        {
+            "Command": "dpkg",
+            "Explanations about Options": {
+                "-i(M)": "Install the package. If --recursive or -R option is specified, package-file must\n refer to a directory instead.",
+                "-l(M)": "List packages matching given pattern.\n -s, --status package-name...\n Report status of specified package.\n -L, --listfiles package-name...\n List files installed to your system from package-name.\n -S, --search filename-search-pattern...\n Search for a filename from installed packages.\n -p, --print-avail package-name...\n Display details about package-name, as found in\n /var/lib/dpkg/available. Users of APT-based frontends\n should use apt-cache show package-name instead."
+            },
+            "MP Summary": "package manager for Debian",
+            "Most Similar TLDR Script": "dpkg -i {{path/to/file.deb}}",
+            "Most Similar TLDR Task": "Install a package",
+            "Top-3 Scripts": [
+                "au_667779: sudo apt-get purge $(dpkg -l | awk '$2~/nvidia/ {print $2}')"
+            ],
+            "Top-3 Similar Questions": [
+                "au_667779: Nvidia Driver install"
+            ]
+        }
+    ],
+    "Query": "how to install nvidia gpu driver"
+}

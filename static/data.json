@@ -1,84 +1,93 @@
 {
     "Answers": [
         {
-            "Command": "nvidia-smi",
-            "Explanations about Options": {},
-            "MP Summary": "NVIDIA System Management Interface program",
-            "Most Similar TLDR Script": "nvidia-smi",
-            "Most Similar TLDR Task": "Display information on all available GPUs and processes using them",
-            "Top-3 Scripts": [
-                "au_1077061: ",
-                "au_1057926: "
-            ],
-            "Top-3 Similar Questions": [
-                "au_1077061: How do I install NVIDIA and CUDA drivers into Ubuntu?",
-                "au_1057926: Nvidia update problems"
-            ]
-        },
-        {
-            "Command": "nvcc",
-            "Explanations about Options": {},
-            "MP Summary": "The NVIDIA CUDA Compiler",
-            "Most Similar TLDR Script": "",
-            "Most Similar TLDR Task": "",
-            "Top-3 Scripts": [
-                "au_1077061: ~$ nvcc -V\nnvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2021 NVIDIA Corporation\nBuilt on Mon_Sep_13_19:13:29_PDT_2021\nCuda compilation tools, release 11.5, V11.5.50\nBuild cuda_11.5.r11.5/compiler.30411180_0"
-            ],
-            "Top-3 Similar Questions": [
-                "au_1077061: How do I install NVIDIA and CUDA drivers into Ubuntu?"
-            ]
-        },
-        {
-            "Command": "apt-get",
-            "Explanations about Options": {},
-            "MP Summary": "APT package handling utility - command-line interface",
-            "Most Similar TLDR Script": "apt-get upgrade",
-            "Most Similar TLDR Task": "Upgrade all installed packages to their newest available versions",
-            "Top-3 Scripts": [
-                "au_805186: sudo apt-get install nvidia-361 nvidia-prime",
-                "au_662721: sudo add-apt-repository ppa:graphics-drivers/ppa\nsudo apt-get update\nsudo apt-get install nvidia-355",
-                "au_640335: sudo add-apt-repository ppa:xorg-edgers/ppa\nsudo apt-get update\n\nsudo apt-get install nvidia-337"
-            ],
-            "Top-3 Similar Questions": [
-                "au_805186: What GPU driver installed?",
-                "au_662721: how do i upgrade my gpu (drivers)",
-                "au_640335: cannot get my nVidia drivers to install"
-            ]
-        },
-        {
-            "Command": "lspci",
+            "Command": "cut",
             "Explanations about Options": {
-                "-k(M)": "Show kernel drivers handling each device and also kernel modules capable of\n handling it. Turned on by default when -v is given in the normal mode of output.\n (Currently works only on Linux with kernel 2.6 or newer.)",
-                "-nn(M)": "Show PCI vendor and device codes as both numbers and names."
+                "-c": "select only these characters",
+                "-d": "use DELIM instead of TAB for field delimiter"
             },
-            "MP Summary": "list all PCI devices",
-            "Most Similar TLDR Script": "lspci -k",
-            "Most Similar TLDR Task": "Display drivers and modules handling each device",
+            "MP Summary": "remove sections from each line of files",
+            "Most Similar TLDR Script": "cut -c {{1-16}} {{file}}",
+            "Most Similar TLDR Task": "Cut out the first sixteen characters of each line of the given files",
             "Top-3 Scripts": [
-                "au_524242: lspci -nn | grep '\\[03'",
-                "au_740027: lspci -k | grep -EA2 'VGA|3D'"
+                "so_43754540: s=\"1478456=Good bye 1 2\"\necho ${s//[[:digit:]]/} | cut -c1\n=",
+                "so_15148796: cut -d \"=\" -f2 <<< \"$your_str\"\n\ncut -d \"=\" -f2- <<< \"$your_str\"",
+                "so_55101106: echo \"<tag>Hello world </tag> blah blah blah <tag> Good night ls -ltrh cptrade* </tag>\" | cut -d'>' -f2 | cut -d'<' -f1"
             ],
             "Top-3 Similar Questions": [
-                "au_524242: How to find out which NVIDIA GPU I have",
-                "au_740027: What's wrong with my gpu?"
+                "so_43754540: Extract the first character after the first number",
+                "so_15148796: Get string after character",
+                "so_55101106: Extract text between two strings but only the first occurrence using sed?"
             ]
         },
         {
-            "Command": "dpkg",
+            "Command": "tr",
             "Explanations about Options": {
-                "-i(M)": "Install the package. If --recursive or -R option is specified, package-file must\n refer to a directory instead.",
-                "-l(M)": "List packages matching given pattern.\n -s, --status package-name...\n Report status of specified package.\n -L, --listfiles package-name...\n List files installed to your system from package-name.\n -S, --search filename-search-pattern...\n Search for a filename from installed packages.\n -p, --print-avail package-name...\n Display details about package-name, as found in\n /var/lib/dpkg/available. Users of APT-based frontends\n should use apt-cache show package-name instead."
+                "-d": "delete characters in SET1, do not translate"
             },
-            "MP Summary": "package manager for Debian",
-            "Most Similar TLDR Script": "dpkg -i {{path/to/file.deb}}",
-            "Most Similar TLDR Task": "Install a package",
+            "MP Summary": "translate or delete characters",
+            "Most Similar TLDR Script": "echo {{text}} | tr {{find_character}} {{replace_character}}",
+            "Most Similar TLDR Task": "Replace all occurrences of a character from another command's output",
             "Top-3 Scripts": [
-                "au_667779: sudo apt-get purge $(dpkg -l | awk '$2~/nvidia/ {print $2}')"
+                "so_52424905: str=\"Release Enterprise Production\"\negrep -o '\\<...' <<< \"$str\" | tr -d '\\n'",
+                "au_93925: VALOREENABLE=`xinput list-props $ID | grep -i Enabled | grep -o \"(.*)\" | tr -d '()'`\nVALORESENSE=`xinput list-props $ID | grep -i Profile | grep -o \"(.*)\" | tr -d '()'`"
             ],
             "Top-3 Similar Questions": [
-                "au_667779: Nvidia Driver install"
+                "so_52424905: Extract first three characters of a string with words with bash, f.ex. with sed",
+                "au_93925: extract number from a string"
+            ]
+        },
+        {
+            "Command": "head",
+            "Explanations about Options": {
+                "-n": "print the first NUM lines instead of the first 10; with the leading '-', print all\n but the last NUM lines of each file"
+            },
+            "MP Summary": "output the first part of files",
+            "Most Similar TLDR Script": "head -n {{count_of_lines}} {{filename}}",
+            "Most Similar TLDR Task": "Output the first few lines of a file",
+            "Top-3 Scripts": [
+                "so_30600399: head -n1 *.txt | grep -ve ^= -e ^$ > first.txt",
+                "so_36696424: while read line; do\n  status=`grep -oP '(?<=Operation status:).*?(?=Sent)' <<< \"$line\"`\n  user=`grep -oP '(?<=username=).*?(?=})' <<< \"$line\" | head -n 1`\n  echo \"Operation status:\" $status \"username=\"$user\ndone < file.txt"
+            ],
+            "Top-3 Similar Questions": [
+                "so_30600399: Extract line from a file in shell script",
+                "so_36696424: Extract two substrings from line in bash then concatenate them"
+            ]
+        },
+        {
+            "Command": "grep",
+            "Explanations about Options": {
+                "-F": "Interpret PATTERNS as fixed strings, not regular expressions.",
+                "-P": "Interpret PATTERNS as Perl-compatible regular expressions (PCREs). This option is\n experimental when combined with the -z (--null-data) option, and grep -P may warn\n of unimplemented features.",
+                "-o": "Print only the matched (non-empty) parts of a matching line, with each such part on\n a separate output line."
+            },
+            "MP Summary": "print lines that match patterns",
+            "Most Similar TLDR Script": "grep -F {{exact_string}} {{path/to/file}}",
+            "Most Similar TLDR Task": "Search for an exact string",
+            "Top-3 Scripts": [
+                "so_41470654: grep -o\n\ngrep -o 'tmp[0-9]*' file\ntmp8\ntmp28\ntmp2\ntmp10\ntmp8",
+                "so_21903723: $ grep 'flow\\.xml$' file > output\n$ cat output\n./ns/GSCT_ASNShipmentInfo_E1/E1/svcReprocessASNManifest/flow.xml\n./ns/GSCT_ASNShipmentInfo_E1/E1/svcUpdateVR01ForOP/flow.xml",
+                "so_21587962: s='430438229200740352 2014-02-03 14:30:45 CST <HorizonAwon> @SawBlastt @WereAutomatic 101 for me to join as well'\ngrep -oP '@\\K[^ ]*' <<< \"$s\"\nSawBlastt\nWereAutomatic"
+            ],
+            "Top-3 Similar Questions": [
+                "so_21599316: How to extract a part of the string between two characters in bash?",
+                "so_41470654: Extract pattern from a string in a bash script",
+                "so_21903723: Extracting a particular String in shell script"
+            ]
+        },
+        {
+            "Command": "join",
+            "Explanations about Options": {},
+            "MP Summary": "join lines of two files on a common field",
+            "Most Similar TLDR Script": "join {{file1}} {{file2}}",
+            "Most Similar TLDR Task": "Join two files on the first (default) field",
+            "Top-3 Scripts": [
+                "so_21587962: s='430438229200740352 2014-02-03 14:30:45 CST <HorizonAwon> @SawBlastt @WereAutomatic 101 for me to join as well'\ngrep -oP '@\\K[^ ]*' <<< \"$s\"\nSawBlastt\nWereAutomatic"
+            ],
+            "Top-3 Similar Questions": [
+                "so_21587962: Extracting A String Between Two Characters in Bash"
             ]
         }
     ],
-    "Query": "How to install nvidia GPU driver"
+    "Query": "How to extract the first two characters of a string in shell scripting?"
 }
